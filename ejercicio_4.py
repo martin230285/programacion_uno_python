@@ -1,4 +1,4 @@
-#ejercicio 4
+23#ejercicio 4
 #Hacer un programaque le pregunten al usuario su nombre
 #fecha de nacimiento y luego indicar la edad en dos formatos
 # a) edad en dias
@@ -26,32 +26,24 @@ nacimiento=fecha_nacimiento.strftime('Dia: %d, Mes: %m, Año: %y, Hora: %H, Minu
 
 fecha_actual_epoch = fecha_actual.timestamp()
 fecha_nacimiento_epoch = fecha_nacimiento.timestamp()
-edad_dias=timedelta(seconds=fecha_actual_epoch)-timedelta(seconds=fecha_nacimiento_epoch)
+edad_segundos=fecha_actual_epoch-fecha_nacimiento_epoch
 
 anos=int(fecha_actual.strftime('%Y'))-int(fecha_nacimiento.strftime("%Y"))
 
-if(int(fecha_actual.strftime('%m'))<int(fecha_nacimiento.strftime("%m"))):#contempla si los mesesde nacimientoson mayores a los actuales
-    anos=anos-1
-    meses=int(fecha_nacimiento.strftime("%m"))-int(fecha_actual.strftime('%m'))
-    meses=12-meses
-meses=int(fecha_actual.strftime('%m'))-int(fecha_nacimiento.strftime("%m"))
+minutos_enteros=edad_segundos//60 
+edad_seg=edad_segundos%60 #segundos que tengo de edad
 
-if(int(fecha_actual.strftime('%d'))<int(fecha_nacimiento.strftime("%d"))):#contempla si los dias nacimientoson mayores a los actuales
-    dias=int(fecha_nacimiento.strftime("%d"))-int(fecha_actual.strftime('%d'))
-    meses=meses-1
-    dias=30.44-dias
-dias=int(fecha_actual.strftime("%d"))-int(fecha_nacimiento.strftime("%d"))
+horas_enteras=minutos_enteros//60
+minutos=minutos_enteros%60
 
-if(int(fecha_actual.strftime('%H'))<int(fecha_nacimiento.strftime("%H"))):#contempla si las nacimientoson mayores a los actuales
-    horas=int(fecha_nacimiento.strftime("%H"))-int(fecha_actual.strftime('%H'))
-    dias=dias-1
-    horas=24-horas
-horas=int(fecha_actual.strftime('%H'))-int(fecha_nacimiento.strftime("%H"))  
-    
-print('Anos:',anos)
-print('Meses: ',meses)
-print('Dias: ',dias)
-print('Horas: ',horas)
-print('Minutos: ',minutos)
+dias_enteros=horas_enteras//24
+horas=horas_enteras%24
 
-print('Segundos: ',segundos)
+meses_enteros=dias_enteros//(365.25/12)
+dias=(dias_enteros%(365.25/13))//1
+
+anos=dias_enteros//365.25
+meses=(dias_enteros%365.25)//24
+
+edad=[anos,'años',meses,'meses',dias,'dias',horas,'horas',minutos,'minutos',edad_seg,'segundos']
+print('Su edad es: ',edad)
