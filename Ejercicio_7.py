@@ -10,9 +10,8 @@
 #  que lo proteja
 import time 
 import random
-
-
 explorador=input('Como te llamads explorador: ')
+
 def intro ():
     print('En un bosque encantado',explorador,'llega a una bifurcacion en donde el sendero se abre en dos...')
     time.sleep(3)
