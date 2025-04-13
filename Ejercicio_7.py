@@ -28,19 +28,19 @@ def sendero(bifurcacion):
     return valores
    
 intro()
-
-eleccion=int(input('cual sendero te  llevara a la victoria? (sendero 1 o sendero 2): '))
-echada_la_suerte=sendero(eleccion)
-if(echada_la_suerte[0]==eleccion and echada_la_suerte[1]==False):
-    print(explorador,'te has encontrado con el Minotauro enfurecido')
-    print('Cuidadoo!!!\n')
-    print('el minotauro no te ha perdonado,',explorador,'has perdido el juego')
-if (echada_la_suerte[0]==eleccion and echada_la_suerte[1]==True):
-    print(explorador,'te as encontrado con el minotauro!!!')
-    print('Cuindadoooo!!!!')
-    time.sleep(3)
-    print('Un escudo magico te a rodeado permitiendote escapar')
-    print('Felicitaciones has ganado el juego!!')
-if(echada_la_suerte[0]!=eleccion):
-    print(explorador,'Tu sendero es el custodiado pr el UNICORNIO BLANCO!!!\n')
-    print('podras pedirle un deseo y seguir tu camino. HAS GANADO EL JUEGO')
+while (True):
+    eleccion=int(input('cual sendero te  llevara a la victoria? (sendero 1 o sendero 2): '))
+    echada_la_suerte=sendero(eleccion)
+    if(echada_la_suerte[0]==eleccion and echada_la_suerte[1]==False):
+        print(explorador,'te has encontrado con el Minotauro enfurecido')
+        print('Cuidadoo!!!\n')
+        print('el minotauro no te ha perdonado,',explorador,'has perdido el juego')
+    if (echada_la_suerte[0]==eleccion and echada_la_suerte[1]==True):
+        print(explorador,'te as encontrado con el minotauro!!!')
+        print('Cuindadoooo!!!!')
+        time.sleep(3)
+        print('Un escudo magico te a rodeado permitiendote escapar')
+        print('Felicitaciones has ganado el juego!!')
+    if(echada_la_suerte[0]!=eleccion):
+        print(explorador,'Tu sendero es el custodiado pr el UNICORNIO BLANCO!!!\n')
+        print('podras pedirle un deseo y seguir tu camino. HAS GANADO EL JUEGO')
