@@ -10,6 +10,7 @@
 #  que lo proteja
 import time 
 import random
+salir=False
 explorador=input('Como te llamads explorador: ')
 
 def intro ():
@@ -27,7 +28,7 @@ def sendero(bifurcacion):
     return valores
    
 intro()
-while (True):
+while (salir==False):
     eleccion=int(input('cual sendero te  llevara a la victoria? (sendero 1 o sendero 2): '))
     echada_la_suerte=sendero(eleccion)
     if(echada_la_suerte[0]==eleccion and echada_la_suerte[1]==False):
@@ -43,3 +44,8 @@ while (True):
     if(echada_la_suerte[0]!=eleccion):
         print(explorador,'Tu sendero es el custodiado pr el UNICORNIO BLANCO!!!\n')
         print('podras pedirle un deseo y seguir tu camino. HAS GANADO EL JUEGO')
+    salir=int(input('Desea volver a jugar?(1=salir/2=seguir): '))    
+    if(salir==1):
+        salir=True
+    else:
+        salir==False
